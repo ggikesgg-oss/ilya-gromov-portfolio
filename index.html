@@ -315,6 +315,11 @@ html[data-theme="dark"] .t-sun{opacity:0;transform:translateY(30px) rotate(-60de
 .cc-name{font-family:var(--fh);font-weight:900;font-size:.88rem;letter-spacing:-.02em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .cc-name::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0}
 .cc-val{font-size:.82rem;color:var(--muted);word-break:break-all}
+.cc-copy{width:100%;font:inherit;color:var(--text);text-align:left;cursor:pointer;appearance:none;-webkit-appearance:none}
+.cc-copy:focus{outline:none}
+.cc-copy:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.cc-copy-status{margin-left:auto;padding:5px 9px;border:1px solid var(--blue);border-radius:999px;background:var(--blue-glow);color:var(--blue-2);font-family:var(--fb);font-size:.68rem;font-weight:700;line-height:1;letter-spacing:0;text-transform:none;opacity:0;transform:translateY(3px);transition:opacity .2s,transform .2s}
+.cc-copy.is-copied .cc-copy-status{opacity:1;transform:none}
 .cc-messenger{position:relative;overflow:hidden;color:#fff;border-color:transparent;box-shadow:0 14px 36px rgba(0,0,0,.18)}
 .cc-messenger:hover{border-color:transparent;transform:translateY(-3px)}
 .cc-messenger::after{content:'';position:absolute;right:-28%;bottom:-92px;width:72%;height:132px;background:rgba(255,255,255,.18);border-radius:999px;transform:rotate(-10deg)}
@@ -674,7 +679,7 @@ footer{padding:var(--s8) 0 var(--s5);border-top:1px solid var(--border);margin-t
     <div class="contacts">
       <a href="https://m.vk.ru/gromowia" target="_blank" rel="noopener" class="cc cc-messenger cc-vk" aria-label="Написать в VK gromowia"><div class="cc-name"><span class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.2 17.2c-5.2 0-8.2-3.6-8.3-9.6h2.6c.1 4.4 2 6.2 3.5 6.6V7.6h2.5v3.8c1.5-.2 3-1.9 3.5-3.8h2.5c-.4 2.3-2.1 4-3.3 4.7 1.2.6 3.1 2.1 3.8 4.9h-2.8c-.5-1.8-1.9-3.2-3.7-3.5v3.5h-.3z"/></svg></span>Написать в VK</div><div class="cc-val">m.vk.ru/gromowia</div></a>
       <a href="https://api.whatsapp.com/send?phone=79950335687" target="_blank" rel="noopener" class="cc cc-messenger cc-wa" aria-label="Написать в WhatsApp +7 995 033-56-87"><div class="cc-name"><span class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-.9-.3-.1-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.5-.5-.7-.5H8c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1 2.2.9 3.1 1 4.2.8 1.3-.2 2.7-1.1 3-2.1.4-1 .4-1.9.3-2.1-.1-.2-.4-.3-.7-.4l-2.4-.4ZM12 21.8c-1.8 0-3.5-.5-5-1.4L1.5 22l1.6-5.4A10 10 0 1 1 12 21.8Zm0-18a8 8 0 0 0-6.8 12.2l.2.4-.9 2.8 2.9-.9.4.2A8 8 0 1 0 12 3.8Z"/></svg></span>Написать в WhatsApp</div><div class="cc-val">+7 995 033-56-87</div></a>
-      <a href="mailto:crewwx.endurable318@passinbox.com" class="cc"><div class="cc-name">Email</div><div class="cc-val">crewwx.endurable318@passinbox.com</div></a>
+      <button type="button" class="cc cc-copy" id="emailCopy" data-copy="crewwx.endurable318@passinbox.com" aria-label="Скопировать Email crewwx.endurable318@passinbox.com"><div class="cc-name">Email<span class="cc-copy-status" role="status" aria-live="polite"></span></div><div class="cc-val">crewwx.endurable318@passinbox.com</div></button>
       <a href="https://kwork.ru/user/ilya_gromow" target="_blank" rel="noopener" class="cc"><div class="cc-name">Kwork</div><div class="cc-val">@ilya_gromow</div></a>
     </div>
   </div>
@@ -710,6 +715,30 @@ footer{padding:var(--s8) 0 var(--s5);border-top:1px solid var(--border);margin-t
   var burger=document.getElementById('burger');
   burger.addEventListener('click',function(){nav.classList.toggle('open')});
   document.getElementById('navLinks').addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open')});
+
+  var emailCopy=document.getElementById('emailCopy'),copyTimer;
+  emailCopy.addEventListener('click',function(){
+    var button=this,text=button.getAttribute('data-copy'),status=button.querySelector('.cc-copy-status');
+    var fallbackCopy=function(){
+      var field=document.createElement('textarea');
+      field.value=text;field.setAttribute('readonly','');field.style.position='fixed';field.style.opacity='0';
+      document.body.appendChild(field);field.select();
+      var ok=false;try{ok=document.execCommand('copy')}catch(e){}
+      document.body.removeChild(field);
+      return ok?Promise.resolve():Promise.reject();
+    };
+    var copy=function(){
+      if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text).catch(fallbackCopy);
+      return fallbackCopy();
+    };
+    copy().then(function(){
+      status.textContent='Скопировано';button.classList.add('is-copied');
+      clearTimeout(copyTimer);copyTimer=setTimeout(function(){button.classList.remove('is-copied');status.textContent=''},2000);
+    }).catch(function(){
+      status.textContent='Не удалось скопировать';button.classList.add('is-copied');
+      clearTimeout(copyTimer);copyTimer=setTimeout(function(){button.classList.remove('is-copied');status.textContent=''},2000);
+    });
+  });
 
   function bindTabs(container,paneSel,attr){
     if(!container)return;
