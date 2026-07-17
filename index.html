@@ -315,6 +315,17 @@ html[data-theme="dark"] .t-sun{opacity:0;transform:translateY(30px) rotate(-60de
 .cc-name{font-family:var(--fh);font-weight:900;font-size:.88rem;letter-spacing:-.02em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .cc-name::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0}
 .cc-val{font-size:.82rem;color:var(--muted);word-break:break-all}
+.cc-messenger{position:relative;overflow:hidden;color:#fff;border-color:transparent;box-shadow:0 14px 36px rgba(0,0,0,.18)}
+.cc-messenger:hover{border-color:transparent;transform:translateY(-3px)}
+.cc-messenger::after{content:'';position:absolute;right:-28%;bottom:-92px;width:72%;height:132px;background:rgba(255,255,255,.18);border-radius:999px;transform:rotate(-10deg)}
+.cc-messenger>*{position:relative;z-index:1}
+.cc-messenger .cc-name,.cc-messenger .cc-val{color:#fff}
+.cc-messenger .cc-name::before{display:none}
+.cc-icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px}
+.cc-icon svg{display:block;width:22px;height:22px;fill:currentColor}
+.cc-tg{background:linear-gradient(135deg,#229ed9 0%,#2aabee 100%)}
+.cc-vk{background:linear-gradient(135deg,#0077ff 0%,#2787f5 100%)}
+.cc-wa{background:linear-gradient(135deg,#25d366 0%,#128c7e 100%)}
 
 footer{padding:var(--s8) 0 var(--s5);border-top:1px solid var(--border);margin-top:var(--s12)}
 .foot-in{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
@@ -661,9 +672,9 @@ footer{padding:var(--s8) 0 var(--s5);border-top:1px solid var(--border);margin-t
       </div>
     </div>
     <div class="contacts">
-      <a href="https://t.me/gromowia" target="_blank" rel="noopener" class="cc"><div class="cc-name">Telegram</div><div class="cc-val">@gromowia</div></a>
-      <a href="mailto:crewwx.endurable318@passinbox.com" class="cc"><div class="cc-name">Email</div><div class="cc-val">crewwx.endurable318@passinbox.com</div></a>
-      <a href="https://kwork.ru/user/ilya_gromow" target="_blank" rel="noopener" class="cc"><div class="cc-name">Kwork</div><div class="cc-val">@ilya_gromow</div></a>
+      <a href="https://t.me/gromowia" target="_blank" rel="noopener" class="cc cc-messenger cc-tg" aria-label="Написать в Telegram @gromowia"><div class="cc-name"><span class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.9 4.2c.3-1.3-.5-1.8-1.5-1.4L2.9 9.5c-1.2.5-1.2 1.1-.2 1.4l4.5 1.4L17.6 5.8c.5-.3.9-.1.5.2l-8.4 7.6-.3 4.6c.5 0 .7-.2 1-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.7-.8l3-14z"/></svg></span>Написать в Telegram</div><div class="cc-val">@gromowia</div></a>
+      <a href="https://m.vk.ru/gromowia" target="_blank" rel="noopener" class="cc cc-messenger cc-vk" aria-label="Написать в VK gromowia"><div class="cc-name"><span class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.2 17.2c-5.2 0-8.2-3.6-8.3-9.6h2.6c.1 4.4 2 6.2 3.5 6.6V7.6h2.5v3.8c1.5-.2 3-1.9 3.5-3.8h2.5c-.4 2.3-2.1 4-3.3 4.7 1.2.6 3.1 2.1 3.8 4.9h-2.8c-.5-1.8-1.9-3.2-3.7-3.5v3.5h-.3z"/></svg></span>Написать в VK</div><div class="cc-val">m.vk.ru/gromowia</div></a>
+      <a href="https://api.whatsapp.com/send?phone=79950335687" target="_blank" rel="noopener" class="cc cc-messenger cc-wa" aria-label="Написать в WhatsApp +7 995 033-56-87"><div class="cc-name"><span class="cc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A10 10 0 0 0 3.4 14.2L2 22l7.9-1.4A10 10 0 0 0 20.5 3.5Zm-8.5 16a8 8 0 0 1-4.1-1.1l-.3-.2-3.5.6.6-3.4-.2-.4A8 8 0 1 1 12 19.5Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.4-1.5-3.1-2.8-.2-.3 0-.4.1-.6l.4-.5c.1-.2.1-.4 0-.6l-.7-1.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.7.7-1 1.5-1 2.4 0 .9.7 1.8.8 2 .1.2 1.5 2.4 3.7 3.3 2.2.9 2.2.6 2.6.6.4 0 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.5-.3Z"/></svg></span>Написать в WhatsApp</div><div class="cc-val">+7 995 033-56-87</div></a>
     </div>
   </div>
 </section>
