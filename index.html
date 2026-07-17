@@ -278,8 +278,8 @@ html[data-theme="dark"] .t-sun{opacity:0;transform:translateY(30px) rotate(-60de
 .kit-buy-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .kit-buy-btn{display:flex;min-width:0;min-height:52px;align-items:center;justify-content:center;gap:7px;padding:0 9px;border-radius:13px;color:#fff;font-family:var(--fb);font-size:.72rem;font-weight:600;line-height:1.2;text-align:center;box-shadow:0 10px 26px rgba(0,0,0,.18);transition:transform .2s,filter .2s}
 .kit-buy-btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
-.kit-buy-btn .cc-icon{width:18px;height:18px;flex-basis:18px}
-.kit-buy-btn .cc-icon svg{width:18px;height:18px}
+.kit-buy-btn .cc-icon{width:20px;height:20px;flex-basis:20px}
+.kit-buy-btn .cc-icon svg{width:20px;height:20px}
 .acc{margin-top:var(--s6)}
 .acc-item{border-bottom:1px solid var(--border)}
 .acc-item:first-child{border-top:1px solid var(--border)}
@@ -335,7 +335,10 @@ html[data-theme="dark"] .t-sun{opacity:0;transform:translateY(30px) rotate(-60de
 .cc-messenger .cc-name,.cc-messenger .cc-val{color:#fff}
 .cc-messenger .cc-name::before{display:none}
 .cc-icon{width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 20px}
-.cc-icon svg{display:block;width:20px;height:20px;fill:currentColor}
+.cc-icon svg{display:block;width:20px;height:20px;fill:currentColor;transform-origin:center}
+.cc-tg .cc-icon svg{transform:scale(.93)}
+.cc-vk .cc-icon svg{transform:scale(1.01)}
+.cc-wa .cc-icon svg{transform:scale(.9)}
 .cc-tg{background:linear-gradient(135deg,#229ed9 0%,#2aabee 100%)}
 .cc-vk{background:linear-gradient(135deg,#0077ff 0%,#2787f5 100%)}
 .cc-wa{background:linear-gradient(135deg,#25d366 0%,#128c7e 100%)}
