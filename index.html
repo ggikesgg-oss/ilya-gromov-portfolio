@@ -399,6 +399,8 @@ footer{padding:var(--s8) 0 var(--s5);border-top:1px solid var(--border);margin-t
     gap:var(--s3);padding:var(--s4);background:var(--glass);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
   .section{padding:var(--s10) 0}
   .wrap{padding:0 var(--s3)}
+  .hero{padding-bottom:var(--s6)}
+  .scroll-cue{display:none}
   .case-body,.case-gallery.g2{grid-template-columns:1fr}
   .ig-row{grid-template-columns:1fr;gap:8px}
   .kit-feat{grid-template-columns:1fr}
@@ -565,13 +567,18 @@ footer{padding:var(--s8) 0 var(--s5);border-top:1px solid var(--border);margin-t
       <p class="lead">Разрабатываю визуальный стиль бренда, оформляю соцсети и создаю рекламные креативы, посты и шаблоны.</p>
     </div>
     <div class="about-card reveal" data-d="1" style="max-width:860px;margin:0 auto">
-      <div class="skills">
-        <div class="skill-cat"><h4 class="skill-h">Брендинг</h4><ul class="svc"><li>Разработка комплексного оформления</li><li>Визуальная идентичность бренда</li><li>Цветовые системы</li><li>Типографические системы</li><li>Анализ конкурентов</li><li>Подбор референсов и moodboard</li></ul></div>
-        <div class="skill-cat"><h4 class="skill-h">SMM-дизайн</h4><ul class="svc"><li>Дизайн социальных сетей</li><li>Рекламные креативы</li><li>Комплексное оформление</li><li>Визуальная айдентика</li></ul></div>
-        <div class="skill-cat"><h4 class="skill-h">Контент</h4><ul class="svc"><li>Разработка контент-концепций</li><li>Копирайтинг для соцсетей</li><li>Создание продающих офферов</li><li>Контент-планирование</li><li>Упаковка кейсов и презентаций</li></ul></div>
-        <div class="skill-cat"><h4 class="skill-h">AI-продакшн</h4><ul class="svc"><li>Генерация рекламных визуалов</li><li>Создание продуктовых и fashion-сцен</li><li>Работа с референсами</li><li>Подготовка контента для рекламы и соцсетей</li><li>Улучшение и адаптация изображений</li></ul></div>
-        <div class="skill-cat"><h4 class="skill-h">Инструменты</h4><ul class="svc"><li>Figma</li><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Adobe After Effects</li><li>Reve</li><li>ChatGPT</li><li>Gemini</li><li>Notion</li></ul></div>
+      <div class="tabs-row" id="svcTabs">
+        <button class="tab-btn active" data-tab="t-brend">Брендинг</button>
+        <button class="tab-btn" data-tab="t-smm">SMM-дизайн</button>
+        <button class="tab-btn" data-tab="t-cont">Контент</button>
+        <button class="tab-btn" data-tab="t-ai">AI-продакшн</button>
+        <button class="tab-btn" data-tab="t-tools">Инструменты</button>
       </div>
+      <div id="t-brend" class="pane active"><ul class="svc"><li>Разработка комплексного оформления</li><li>Визуальная идентичность бренда</li><li>Цветовые системы</li><li>Типографические системы</li><li>Анализ конкурентов</li><li>Подбор референсов и moodboard</li></ul></div>
+      <div id="t-smm" class="pane"><ul class="svc"><li>Дизайн социальных сетей</li><li>Рекламные креативы</li><li>Комплексное оформление</li><li>Визуальная айдентика</li></ul></div>
+      <div id="t-cont" class="pane"><ul class="svc"><li>Разработка контент-концепций</li><li>Копирайтинг для соцсетей</li><li>Создание продающих офферов</li><li>Контент-планирование</li><li>Упаковка кейсов и презентаций</li></ul></div>
+      <div id="t-ai" class="pane"><ul class="svc"><li>Генерация рекламных визуалов</li><li>Создание продуктовых и fashion-сцен</li><li>Работа с референсами</li><li>Подготовка контента для рекламы и соцсетей</li><li>Улучшение и адаптация изображений</li></ul></div>
+      <div id="t-tools" class="pane"><ul class="svc"><li>Figma</li><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Adobe After Effects</li><li>Reve</li><li>ChatGPT</li><li>Gemini</li><li>Notion</li></ul></div>
     </div>
     <div class="marquee reveal"><div class="marquee-track">
       <span class="mq">Figma</span><span class="mq">Photoshop</span><span class="mq">Illustrator</span><span class="mq">After Effects</span><span class="mq">Reve</span><span class="mq">ChatGPT</span><span class="mq">Gemini</span><span class="mq">Notion</span>
