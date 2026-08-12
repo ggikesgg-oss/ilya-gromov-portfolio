@@ -64,7 +64,7 @@ html[data-theme="light"]{
   --glass:rgba(255,255,255,.7);
 }
 
-html{scroll-behavior:smooth;overflow-x:clip;font-size:17px}
+html{scroll-behavior:smooth;overflow-x:clip;font-size:18px}
 body{
   background:var(--bg); color:var(--text);
   font-family:var(--fb); font-weight:400; line-height:1.6; font-size:1rem;
@@ -199,10 +199,10 @@ html[data-theme="dark"] .t-sun{opacity:0;transform:translateY(30px) rotate(-60de
 .tab-btn:hover:not(.active){border-color:var(--border-2);color:var(--text)}
 .pane{display:none}.pane.active{display:block;animation:fadein .4s var(--ease)}
 @keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.svc{list-style:none;display:flex;flex-direction:column;gap:9px}
-.svc li{font-size:.92rem;color:var(--muted);padding:12px 16px;background:var(--bg-3);border-radius:var(--r1);
-  border-left:2px solid var(--blue);display:flex;align-items:center;gap:11px;transition:transform .2s,color .2s}
-.svc li:hover{transform:translateX(5px);color:var(--text)}
+.svc{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.svc li{font-size:1rem;color:var(--muted);padding:10px 18px;background:var(--bg-3);border-radius:999px;
+  border:1px solid var(--border);display:flex;align-items:center;gap:9px;transition:color .2s,border-color .2s}
+.svc li:hover{color:var(--text);border-color:var(--blue)}
 .svc li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
 
 .marquee{margin-top:var(--s8);overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);position:relative}
@@ -353,9 +353,9 @@ html[data-theme="dark"] .t-sun{opacity:0;transform:translateY(30px) rotate(-60de
 .kit-cta-after{text-align:center;margin-top:var(--s7)}
 /* --- skills static (about) --- */
 .skill-title{font-family:var(--fh);font-weight:900;text-transform:uppercase;font-size:1rem;letter-spacing:.03em;margin:var(--s4) 0 var(--s2);color:var(--text)}
-.skills{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4) var(--s5)}
-.skill-h{font-family:var(--fh);font-weight:700;font-size:.92rem;text-transform:uppercase;letter-spacing:.03em;color:var(--text);margin-bottom:10px}
-@media(max-width:640px){.skills{grid-template-columns:1fr}}
+.skills{display:flex;flex-direction:column;gap:var(--s4);align-items:center;width:100%}
+.skill-cat{width:100%;max-width:680px;text-align:center}
+.skill-h{font-family:var(--fh);font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:.03em;color:var(--text);margin-bottom:14px;text-align:center}
 /* --- contact modal --- */
 .modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
 .modal[hidden]{display:none}
@@ -577,9 +577,6 @@ footer{padding:var(--s8) 0 var(--s5);border-top:1px solid var(--border);margin-t
         <div class="skill-cat"><h4 class="skill-h">Инструменты</h4><ul class="svc"><li>Figma</li><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Adobe After Effects</li><li>Reve</li><li>ChatGPT</li><li>Gemini</li><li>Notion</li></ul></div>
       </div>
     </div>
-    <div class="reveal" data-d="2" style="text-align:center;margin-top:var(--s5)">
-      <button type="button" class="btn btn-ghost" data-contact-popup>Обсудить проект <span class="arr">&#8594;</span></button>
-    </div>
     <div class="marquee reveal"><div class="marquee-track">
       <span class="mq">Figma</span><span class="mq">Photoshop</span><span class="mq">Illustrator</span><span class="mq">After Effects</span><span class="mq">Reve</span><span class="mq">ChatGPT</span><span class="mq">Gemini</span><span class="mq">Notion</span>
       <span class="mq">Figma</span><span class="mq">Photoshop</span><span class="mq">Illustrator</span><span class="mq">After Effects</span><span class="mq">Reve</span><span class="mq">ChatGPT</span><span class="mq">Gemini</span><span class="mq">Notion</span>
@@ -652,9 +649,6 @@ footer{padding:var(--s8) 0 var(--s5);border-top:1px solid var(--border);margin-t
         <button class="acc-btn">Дополнительно<span class="acc-ico">+</span></button>
         <div class="acc-body"><div class="acc-inner"><ul class="acc-sub"><li>Подготовка материалов для публикации</li><li>Адаптация дизайна под выбранную площадку</li><li>Тестирование визуальной концепции на аудитории</li><li>Внесение правок по результатам согласования</li><li>Мини-гайд по использованию дизайна</li></ul></div></div>
       </div>
-    </div>
-    <div class="kit-cta-after reveal">
-      <button type="button" class="btn btn-primary" data-contact-popup>Обсудить проект <span class="arr">&#8594;</span></button>
     </div>
   </div>
 </section>
